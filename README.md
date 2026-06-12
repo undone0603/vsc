@@ -6,11 +6,11 @@
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Chat](https://img.shields.io/badge/Chat-W3C%20Slack-4A154B.svg)](https://w3c.slack.com/archives/verifiable-supply-chain)
 
-## 📋 Mission
+## Mission
 
 Accelerate the adoption of decentralized, verifiable data standards in global supply chains. We develop industry-specific profiles, interoperability frameworks, and certification guidelines that enable businesses to exchange cryptographically verifiable proofs of origin, custody, compliance, and sustainability—building trust, reducing fraud, and unlocking new efficiency across multi-party industrial networks.
 
-## 🎯 Scope
+## Scope
 
 This group focuses on the **practical implementation**, **industry alignment**, and **certification** of supply chain applications using the W3C's Verifiable Credentials (VC) ecosystem and related protocols like [UORA](https://www.w3.org/community/uora/).
 
@@ -42,7 +42,7 @@ Document high-impact business cases with quantifiable ROI:
 - Recall management
 - Provenance & ethical sourcing
 
-## 🔗 Relationship to UORA CG
+## Relationship to UORA CG
 
 This group is a **downstream adopter and specializer** of the [UORA Community Group's](https://www.w3.org/community/uora/) core technical specifications.
 
@@ -54,7 +54,7 @@ This group is a **downstream adopter and specializer** of the [UORA Community Gr
 
 The two groups maintain a formal liaison for synchronized development.
 
-## 📦 Deliverables
+## Deliverables
 
 ### Industry Blueprints
 - **Pharmaceuticals Profile** - DSCSA-compliant verifiable proofs
@@ -80,7 +80,7 @@ The two groups maintain a formal liaison for synchronized development.
 - Pilot program templates
 - Vendor evaluation criteria
 
-## 🏆 Success Criteria
+## Success Criteria
 
 The group will be considered successful when:
 
@@ -90,7 +90,7 @@ The group will be considered successful when:
 - ✅ **5+ production deployments** across at least three industry verticals
 - ✅ **Published ROI data** demonstrating measurable business value
 
-## 🚫 Out of Scope
+## Out of Scope
 
 The following are **explicitly out of scope** for this group:
 
@@ -102,7 +102,7 @@ The following are **explicitly out of scope** for this group:
 | Core DID method development | Leverages existing DID methods |
 | Generic identity management | Focused on supply chain use cases |
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 vsc-cg/
@@ -132,7 +132,7 @@ vsc-cg/
     └── api/                 # API specifications
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### For Implementers
 1. Review the [Industry Blueprints](/profiles) for your vertical
@@ -149,7 +149,7 @@ vsc-cg/
 2. Contribute to [industry profiles](/profiles)
 3. Publish findings through [case studies](/use-cases/case-studies)
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from:
 - **Supply chain practitioners** - Share real-world requirements
@@ -168,13 +168,13 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 | Use Cases | Medium | Business analysis |
 | Governance Models | Low | Legal, compliance |
 
-## 📅 Meetings & Communication
+## Meetings & Communication
 
 - **Weekly Calls**: Not yet decided
 - **Mailing List**: [public-vsc@w3.org](mailto:public-vsc@w3.org)
 - **Meeting Calendar**: [Subscribe](https://www.w3.org/groups/cg/vsc/calendar/)
 
-## 👥 Participants
+## Participants
 
 *[List active participants and organizations]*
 
@@ -182,7 +182,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 All deliverables are published under the [W3C Document License](https://www.w3.org/Consortium/Legal/2025/document-license).
 
-## 📚 Related Standards & Organizations
+## Related Standards & Organizations
 
 | Organization | Relevance |
 |--------------|-----------|
@@ -192,14 +192,10 @@ All deliverables are published under the [W3C Document License](https://www.w3.o
 | [ISO/TC 307](https://www.iso.org/committee/6266604.html) | Blockchain and distributed ledger |
 | [UN/CEFACT](https://unece.org/trade/uncefact) | Trade facilitation standards |
 
-## 📧 Contact
+## Contact
 
 **Chairs:**
-- *Amir Hameed Mir* - *Sirraya labs* - *amsaalegal@gmail.com*
+- *Amir Hameed Mir* - *Sirraya labs* - *amir@sirraya.org*
 
 
-**W3C Staff Contact:**
-- *Ian Jacobs* 
-
----
 

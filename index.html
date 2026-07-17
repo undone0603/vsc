@@ -13,6 +13,7 @@
   --ink: #0A0A0A;
   --ink-2: #1A1A1A;
   --ink-3: #2A2A2A;
+  --ink-4: #A8A8A8;
   --surface: #FFFFFF;
   --surface-2: #F8F8F8;
   --surface-3: #F0F0F0;
@@ -76,18 +77,6 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-cta:hover { opacity: 0.82; }
 
-/* Live indicator */
-.live-indicator {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--mono); font-size: 10px; color: var(--green);
-  margin-left: 12px;
-}
-.live-dot {
-  width: 7px; height: 7px; background: var(--green); border-radius: 50%;
-  animation: livePulse 1.5s ease-in-out infinite;
-}
-@keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
-
 /* ─── HERO ────────────────────────────────────── */
 .hero {
   padding: 7rem 2rem 5rem;
@@ -105,7 +94,7 @@ a { color: inherit; text-decoration: none; }
 @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 .hero h1 { font-size: 48px; font-weight: 300; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.5rem; }
 .hero h1 strong { font-weight: 500; display: block; }
-.hero-desc { font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 420px; margin-bottom: 2.25rem; }
+.hero-desc { font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 440px; margin-bottom: 2.25rem; }
 .hero-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 7px;
@@ -154,10 +143,6 @@ a { color: inherit; text-decoration: none; }
 .stat-block:last-child { border-right: none; }
 .stat-n { font-size: 28px; font-weight: 300; letter-spacing: -0.04em; color: var(--ink); display: block; }
 .stat-l { font-size: 12px; color: var(--ink-3); margin-top: 2px; display: block; }
-.stat-updated {
-  text-align: center; padding: 0.4rem; font-size: 10px; color: var(--ink-3);
-  font-family: var(--mono); background: var(--surface-2);
-}
 
 /* ─── SECTION SHARED ─────────────────────────── */
 .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
@@ -169,7 +154,16 @@ a { color: inherit; text-decoration: none; }
 .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.10); max-width: 48px; }
 .section-title { font-size: 32px; font-weight: 300; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 0.6rem; }
 .section-title strong { font-weight: 500; }
-.section-sub { font-size: 15px; color: var(--ink-2); line-height: 1.65; max-width: 560px; margin-bottom: 3rem; }
+.section-sub { font-size: 15px; color: var(--ink-2); line-height: 1.65; max-width: 620px; margin-bottom: 3rem; }
+
+/* ─── ICON TILE (shared across overview / specs / profiles / deliverables) ─── */
+.icon-tile {
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.10); background: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem; color: var(--ink-2); flex-shrink: 0;
+}
+.icon-tile svg { width: 19px; height: 19px; }
 
 /* ─── VSC OVERVIEW ──────────────────────────── */
 .overview-grid {
@@ -181,7 +175,6 @@ a { color: inherit; text-decoration: none; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .overview-card:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-.overview-icon { font-size: 28px; margin-bottom: 1rem; display: block; }
 .overview-name { font-size: 14px; font-weight: 500; margin-bottom: 0.5rem; color: var(--ink); }
 .overview-desc { font-size: 12px; color: var(--ink-2); line-height: 1.55; }
 
@@ -189,9 +182,9 @@ a { color: inherit; text-decoration: none; }
 .spec-link-card {
   display: block; border: 1px solid rgba(0,0,0,0.12);
   border-radius: var(--radius-lg); padding: 1.75rem; background: #FFFFFF;
-  transition: border-color 0.15s, box-shadow 0.15s; cursor: pointer; color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; cursor: pointer; color: var(--ink);
 }
-.spec-link-card:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.spec-link-card:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
 
 /* ─── PROFILES ────────────────────────────────── */
 .profiles-grid {
@@ -205,7 +198,6 @@ a { color: inherit; text-decoration: none; }
 .profile-cell:hover { background: #F8F8F8; }
 .profile-cell:nth-child(3n) { border-right: none; }
 .profile-cell:nth-last-child(-n+3) { border-bottom: none; }
-.profile-icon { font-size: 22px; margin-bottom: 0.75rem; display: block; }
 .profile-name { font-size: 14px; font-weight: 500; margin-bottom: 0.4rem; letter-spacing: -0.01em; color: var(--ink); }
 .profile-desc { font-size: 12px; color: var(--ink-2); line-height: 1.55; margin-bottom: 0.85rem; }
 .status-pill {
@@ -226,7 +218,6 @@ a { color: inherit; text-decoration: none; }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .deliverable-card:hover { border-color: rgba(0,0,0,0.22); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-.deliverable-icon { width: 36px; height: 36px; border-radius: 9px; border: 1px solid rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 1rem; background: #F8F8F8; }
 .deliverable-name { font-size: 15px; font-weight: 500; letter-spacing: -0.015em; margin-bottom: 0.5rem; color: var(--ink); }
 .deliverable-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 .deliverable-items { margin-top: 1rem; display: flex; flex-direction: column; gap: 5px; }
@@ -242,53 +233,6 @@ a { color: inherit; text-decoration: none; }
 .compliance-row:hover { background: #F8F8F8; }
 .comp-name { color: var(--ink); font-weight: 400; }
 .comp-scope { font-family: var(--mono); font-size: 10px; color: var(--ink-3); }
-
-/* ─── PARTICIPANTS ──────────────────────────── */
-.participants-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-  border: 1px solid rgba(0,0,0,0.14); border-radius: var(--radius-lg);
-  overflow: hidden; background: rgba(0,0,0,0.08);
-}
-.participant-cell {
-  background: #FFFFFF; padding: 1.25rem;
-  display: flex; align-items: center; gap: 10px; transition: background 0.12s;
-}
-.participant-cell:hover { background: #F8F8F8; }
-.p-ava {
-  width: 36px; height: 36px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 11px; font-weight: 500; flex-shrink: 0;
-}
-.p-name { font-size: 13px; font-weight: 500; line-height: 1.3; color: var(--ink); }
-.p-role { font-size: 11px; color: var(--ink-3); margin-top: 1px; }
-.participants-note { margin-top: 1rem; font-size: 12px; color: var(--ink-3); text-align: center; }
-.participants-note a { color: var(--accent); }
-.participants-note a:hover { text-decoration: underline; }
-
-/* ─── ACTIVITY ────────────────────────────────── */
-.activity-list { border: 1px solid rgba(0,0,0,0.12); border-radius: var(--radius-lg); overflow: hidden; background: #FFFFFF; }
-.activity-item {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 1rem 1.25rem; border-bottom: 1px solid rgba(0,0,0,0.06);
-  cursor: pointer; transition: background 0.12s; text-decoration: none; color: inherit;
-}
-.activity-item:last-child { border-bottom: none; }
-.activity-item:hover { background: #F8F8F8; }
-.a-avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 10px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
-.av-blue { background: var(--accent-2); color: var(--accent-text); }
-.av-green { background: var(--green-bg); color: var(--green); }
-.av-amber { background: var(--amber-bg); color: var(--amber); }
-.av-gray { background: #F0F0F0; color: var(--ink-3); }
-.a-body { flex: 1; }
-.a-subject { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 3px; }
-.a-meta { font-size: 11px; color: var(--ink-3); display: flex; gap: 8px; }
-.a-meta span::before { content: '·'; margin-right: 8px; }
-.a-meta span:first-child::before { display: none; }
-.a-arrow { font-size: 11px; color: var(--ink-3); flex-shrink: 0; align-self: center; opacity: 0; transition: opacity 0.12s; }
-.activity-item:hover .a-arrow { opacity: 1; }
-.activity-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-.activity-header-right a { font-size: 12px; color: var(--accent); font-family: var(--mono); display: flex; align-items: center; gap: 4px; }
-.activity-header-right a:hover { text-decoration: underline; }
 
 /* ─── JOIN BANNER ─────────────────────────────── */
 .join-banner {
@@ -344,7 +288,6 @@ footer {
   .profile-cell:nth-child(2n) { border-right: none; }
   .deliverables-grid { grid-template-columns: 1fr; }
   .compliance-two-col { grid-template-columns: 1fr; gap: 2rem; }
-  .participants-grid { grid-template-columns: 1fr 1fr; }
   .join-banner { flex-direction: column; gap: 2rem; }
   .nav-right .nav-link { display: none; }
   .stats-strip { flex-wrap: wrap; }
@@ -356,7 +299,6 @@ footer {
   .profiles-grid { grid-template-columns: 1fr; }
   .profile-cell { border-right: none !important; }
   .profile-cell:not(:last-child) { border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
-  .participants-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
   .section { padding: 3.5rem 1.25rem; }
   .join-banner { padding: 2rem; margin: 0 1.25rem 3rem; }
@@ -370,7 +312,6 @@ footer {
     <span class="nav-w3c">W3C</span>
     <span class="nav-slash">/</span>
     <span class="nav-name">Verifiable Supply Chain CG</span>
-    <span class="live-indicator"><span class="live-dot"></span>Live data</span>
   </div>
   <div class="nav-right">
     <a href="#overview" class="nav-link">About VSC</a>
@@ -378,20 +319,18 @@ footer {
     <a href="#specs" class="nav-link">Specs</a>
     <a href="#deliverables" class="nav-link">Deliverables</a>
     <a href="#compliance" class="nav-link">Compliance</a>
-    <a href="#activity" class="nav-link">Activity</a>
     <a href="https://www.w3.org/community/vsc/join" class="nav-cta" target="_blank">Join group →</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-kicker"><span class="kicker-dot"></span>W3C Community Group · Launched Feb 2026</div>
+    <div class="hero-kicker"><span class="kicker-dot"></span>W3C Community Group · Est. February 2026</div>
     <h1>Verifiable trust<br><strong>in global supply chains</strong></h1>
-    <p class="hero-desc">We build the infrastructure for cryptographically verifiable trade — mapping EPCIS events to Verifiable Credentials, binding DIDs to supply chain actors, and embedding HS Codes, INCOTERMS®, and UCP 600 as normative vocabularies so every shipment becomes a self-proving trade document.</p>
+    <p class="hero-desc">Global trade still runs on paperwork nobody can fully trust — certificates, customs filings, and shipment records that can be forged, lost, or disputed after the fact. We design open, W3C-backed standards that turn that paperwork into cryptographic proof: linking real shipment events to Verifiable Credentials, binding digital identities to the people and companies handling goods, and speaking the same regulatory language customs authorities, banks, and auditors already use.</p>
     <div class="hero-actions">
       <a href="https://www.w3.org/community/vsc/join" class="btn-primary" target="_blank">Join the community</a>
       <a href="https://github.com/w3c-cg/vsc-requirements" class="btn-secondary" target="_blank">GitHub ↗</a>
-      <a href="https://lists.w3.org/Archives/Public/public-vsc/" class="btn-secondary" target="_blank">Mailing list ↗</a>
     </div>
   </div>
   <div class="hero-right">
@@ -422,38 +361,36 @@ footer {
 </section>
 
 <div class="stats-strip">
-  <div class="stat-block"><span class="stat-n" id="statParticipants">8</span><span class="stat-l">Participants</span></div>
-  <div class="stat-block"><span class="stat-n" id="statMessages">15</span><span class="stat-l">Mailing list messages</span></div>
-  <div class="stat-block"><span class="stat-n">3</span><span class="stat-l">Open GitHub issues</span></div>
-  <div class="stat-block"><span class="stat-n">5</span><span class="stat-l">Industry verticals</span></div>
-  <div class="stat-block"><span class="stat-n">2</span><span class="stat-l">GitHub forks</span></div>
+  <div class="stat-block"><span class="stat-n">4</span><span class="stat-l">Published specifications</span></div>
+  <div class="stat-block"><span class="stat-n">6</span><span class="stat-l">Industry profiles</span></div>
+  <div class="stat-block"><span class="stat-n">14</span><span class="stat-l">Standards &amp; regulations mapped</span></div>
+  <div class="stat-block"><span class="stat-n">5</span><span class="stat-l">Layer architecture</span></div>
 </div>
-<div class="stat-updated" id="statUpdated">Data from W3C archives · Updated on page load</div>
 
 <section class="section" id="overview">
   <div class="section-label">About VSC</div>
   <div class="section-title">What the <strong>Verifiable Supply Chain</strong> framework does</div>
-  <p class="section-sub">VSC is a five-layer architecture that transforms physical supply chain events into self-contained, cryptographically provable trade documents. It maps EPCIS events to Verifiable Credentials, binds DIDs to supply chain actors, and embeds three normative vocabularies — HS Codes, INCOTERMS®, and UCP 600 — so a single credential answers what the product is, who bears commercial risk, and how payment is governed.</p>
+  <p class="section-sub">In plain terms: VSC gives supply chains a way to prove things cryptographically instead of asking everyone to trust paperwork. It takes the event data companies already generate — a shipment leaving a factory, clearing customs, changing hands — and turns each event into a signed, tamper-evident credential. The result is a single document that shows what a product is, who's responsible for it, and how it's being paid for, and that anyone can verify independently, with no phone calls and no central authority.</p>
   <div class="overview-grid">
     <div class="overview-card">
-      <span class="overview-icon">📋</span>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></div>
       <div class="overview-name">EPCIS → VC Mapping</div>
-      <div class="overview-desc">Lossless transformation of all five EPCIS event types into Verifiable Credentials with Data Integrity proofs. Every event becomes tamper-evident.</div>
+      <div class="overview-desc">A lossless translation of all five standard supply chain event types into Verifiable Credentials with built-in tamper-evidence. Every event becomes independently checkable.</div>
     </div>
     <div class="overview-card">
-      <span class="overview-icon">🔐</span>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
       <div class="overview-name">DID Identity Binding</div>
-      <div class="overview-desc">Every credential signed by the asserting actor's DID. Verifiers resolve DIDs independently — no central authority required.</div>
+      <div class="overview-desc">Every credential is signed by the actor asserting it, using a decentralized identifier. Verifiers check signatures directly — no central registry to trust.</div>
     </div>
     <div class="overview-card">
-      <span class="overview-icon">📦</span>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2H4v8.6a2 2 0 0 0 .6 1.4l9 9a2 2 0 0 0 2.8 0l6.2-6.2a2 2 0 0 0 0-2.8l-9-9A2 2 0 0 0 12.6 2Z"/><circle cx="8.5" cy="7.5" r="1.2" fill="currentColor" stroke="none"/></svg></div>
       <div class="overview-name">Normative Vocabularies</div>
-      <div class="overview-desc">HS Codes for commodity classification, INCOTERMS® for commercial terms, UCP 600 for trade finance. All standardized, all machine-readable.</div>
+      <div class="overview-desc">HS Codes for commodity classification, INCOTERMS® for commercial terms, and UCP 600 for trade finance — all standardized and machine-readable inside every credential.</div>
     </div>
     <div class="overview-card">
-      <span class="overview-icon">🧩</span>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
       <div class="overview-name">Event Matrix</div>
-      <div class="overview-desc">Five-dimensional cross-domain verification schema. Forward-compatible with +Dn extensibility. ML-ready feature extraction.</div>
+      <div class="overview-desc">A five-dimensional cross-domain verification schema, designed to stay forward-compatible as new event types and jurisdictions are added.</div>
     </div>
   </div>
 </section>
@@ -461,28 +398,28 @@ footer {
 <section class="section" id="specs">
   <div class="section-label">Specifications</div>
   <div class="section-title"><strong>Read the specs</strong></div>
-  <p class="section-sub">Each specification is a standalone ReSpec document.</p>
+  <p class="section-sub">Each specification is a standalone, browsable ReSpec document, open for public comment.</p>
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem;">
     <a href="specs/vsc-requirements.html" target="_blank" class="spec-link-card">
-      <div class="deliverable-icon">📘</div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 5 8 4 4 4v14c4 0 6.5 1 8 2.5"/><path d="M12 6.5C13.5 5 16 4 20 4v14c-4 0-6.5 1-8 2.5"/></svg></div>
       <div class="deliverable-name">VSC Requirements &amp; Use Cases</div>
-      <div class="deliverable-desc">The foundational specification — twenty functional requirements, eleven use cases, the Event Matrix, Regulatory Rule Compiler, and all three normative vocabularies.</div>
+      <div class="deliverable-desc">The foundational specification — twenty functional requirements, eleven use cases, the Event Matrix, the Regulatory Rule Compiler, and all three normative vocabularies.</div>
       <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 10px; color: var(--accent);"><span>Open specification</span><span style="font-size: 11px;">↗</span></div>
     </a>
     <a href="specs/pharma-profile.html" target="_blank" class="spec-link-card">
-      <div class="deliverable-icon">⚗️</div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.4L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.4V2"/><path d="M7 15h10"/></svg></div>
       <div class="deliverable-name">Pharma Supply Chain Profile</div>
       <div class="deliverable-desc">VC/UORA credential schema for pharmaceutical traceability. Maps DSCSA, FDA identifiers, and GS1 EPCIS to W3C Verifiable Credentials.</div>
       <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 10px; color: var(--accent);"><span>Open specification</span><span style="font-size: 11px;">↗</span></div>
     </a>
     <a href="specs/critical-minerals.html" target="_blank" class="spec-link-card">
-      <div class="deliverable-icon">⛏️</div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg></div>
       <div class="deliverable-name">Critical Minerals Traceability</div>
       <div class="deliverable-desc">Provenance and due-diligence credentials for lithium, cobalt, and rare earth elements. Aligned with EU Battery Regulation and OECD guidance.</div>
       <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 10px; color: var(--accent);"><span>Open specification</span><span style="font-size: 11px;">↗</span></div>
     </a>
     <a href="specs/trust-framework.html" target="_blank" class="spec-link-card">
-      <div class="deliverable-icon">🏛️</div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
       <div class="deliverable-name">Trust Framework Template</div>
       <div class="deliverable-desc">Customizable governance, accreditation, and compliance rules for supply chain networks issuing verifiable credentials.</div>
       <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 10px; color: var(--accent);"><span>Open specification</span><span style="font-size: 11px;">↗</span></div>
@@ -495,12 +432,48 @@ footer {
   <div class="section-title"><strong>VC/UORA profiles</strong> by vertical</div>
   <p class="section-sub">Reusable, public credential schemas tailored to specific industry regulatory contexts.</p>
   <div class="profiles-grid">
-    <div class="profile-cell"><span class="profile-icon">⚗️</span><div class="profile-name">Pharmaceuticals &amp; Healthcare</div><div class="profile-desc">Lot-level chain-of-custody attestation and serialization credentials aligned with US drug traceability law.</div><span class="status-pill status-active">In progress</span><div class="profile-regs"><span class="reg-tag">DSCSA</span><span class="reg-tag">FDA 21 CFR</span><span class="reg-tag">GS1 EPCIS</span></div></div>
-    <div class="profile-cell"><span class="profile-icon">⛏️</span><div class="profile-name">Critical Minerals</div><div class="profile-desc">Provenance and due-diligence credentials for lithium, cobalt, rare earths, and other strategic minerals.</div><span class="status-pill status-draft">Draft</span><div class="profile-regs"><span class="reg-tag">CBAM</span><span class="reg-tag">EUDR</span><span class="reg-tag">ISO 14001</span></div></div>
-    <div class="profile-cell"><span class="profile-icon">🚗</span><div class="profile-name">Automotive &amp; Aerospace</div><div class="profile-desc">Component traceability, recall management, and EV battery passport credentials for multi-tier supply chains.</div><span class="status-pill status-planned">Planned</span><div class="profile-regs"><span class="reg-tag">EU Battery Reg.</span><span class="reg-tag">AS9100</span></div></div>
-    <div class="profile-cell"><span class="profile-icon">🌾</span><div class="profile-name">Food &amp; Beverage</div><div class="profile-desc">Farm-to-fork provenance, allergen disclosure, and deforestation-free sourcing attestations.</div><span class="status-pill status-planned">Planned</span><div class="profile-regs"><span class="reg-tag">EUDR</span><span class="reg-tag">GS1 EPCIS</span><span class="reg-tag">FSMA 204</span></div></div>
-    <div class="profile-cell"><span class="profile-icon">💎</span><div class="profile-name">Luxury Goods</div><div class="profile-desc">Anti-counterfeiting authenticity credentials and ownership attestation linked to the EU Digital Product Passport.</div><span class="status-pill status-planned">Planned</span><div class="profile-regs"><span class="reg-tag">EU DPP</span><span class="reg-tag">CSRD</span></div></div>
-    <div class="profile-cell"><span class="profile-icon">💻</span><div class="profile-name">Electronics</div><div class="profile-desc">Component origin, conflict minerals disclosure, and repair/recycle credentials for the circular economy.</div><span class="status-pill status-planned">Planned</span><div class="profile-regs"><span class="reg-tag">EU ESPR</span><span class="reg-tag">Dodd-Frank §1502</span></div></div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.4L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.4V2"/><path d="M7 15h10"/></svg></div>
+      <div class="profile-name">Pharmaceuticals &amp; Healthcare</div>
+      <div class="profile-desc">Lot-level chain-of-custody attestation and serialization credentials aligned with US drug traceability law.</div>
+      <span class="status-pill status-active">In progress</span>
+      <div class="profile-regs"><span class="reg-tag">DSCSA</span><span class="reg-tag">FDA 21 CFR</span><span class="reg-tag">GS1 EPCIS</span></div>
+    </div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg></div>
+      <div class="profile-name">Critical Minerals</div>
+      <div class="profile-desc">Provenance and due-diligence credentials for lithium, cobalt, rare earths, and other strategic minerals.</div>
+      <span class="status-pill status-draft">Draft</span>
+      <div class="profile-regs"><span class="reg-tag">CBAM</span><span class="reg-tag">EUDR</span><span class="reg-tag">ISO 14001</span></div>
+    </div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 6.5 6a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 11"/><rect x="2.5" y="11" width="19" height="6" rx="1.5"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></svg></div>
+      <div class="profile-name">Automotive &amp; Aerospace</div>
+      <div class="profile-desc">Component traceability, recall management, and EV battery passport credentials for multi-tier supply chains.</div>
+      <span class="status-pill status-planned">Planned</span>
+      <div class="profile-regs"><span class="reg-tag">EU Battery Reg.</span><span class="reg-tag">AS9100</span></div>
+    </div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-8 3-13 8-16-1 6-2 11-8 16Z"/><path d="M12 21c0-8-3-13-8-16 1 6 2 11 8 16Z"/></svg></div>
+      <div class="profile-name">Food &amp; Beverage</div>
+      <div class="profile-desc">Farm-to-fork provenance, allergen disclosure, and deforestation-free sourcing attestations.</div>
+      <span class="status-pill status-planned">Planned</span>
+      <div class="profile-regs"><span class="reg-tag">EUDR</span><span class="reg-tag">GS1 EPCIS</span><span class="reg-tag">FSMA 204</span></div>
+    </div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M2 9h20"/><path d="m9 3-3 6 6 12 6-12-3-6"/></svg></div>
+      <div class="profile-name">Luxury Goods</div>
+      <div class="profile-desc">Anti-counterfeiting authenticity credentials and ownership attestation linked to the EU Digital Product Passport.</div>
+      <span class="status-pill status-planned">Planned</span>
+      <div class="profile-regs"><span class="reg-tag">EU DPP</span><span class="reg-tag">CSRD</span></div>
+    </div>
+    <div class="profile-cell">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx="0.5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+      <div class="profile-name">Electronics</div>
+      <div class="profile-desc">Component origin, conflict minerals disclosure, and repair/recycle credentials for the circular economy.</div>
+      <span class="status-pill status-planned">Planned</span>
+      <div class="profile-regs"><span class="reg-tag">EU ESPR</span><span class="reg-tag">Dodd-Frank §1502</span></div>
+    </div>
   </div>
 </section>
 
@@ -511,10 +484,30 @@ footer {
   <div class="section-title">What the group <strong>produces</strong></div>
   <p class="section-sub">Four concrete output types — all public, all under W3C Document License.</p>
   <div class="deliverables-grid">
-    <div class="deliverable-card"><div class="deliverable-icon">📘</div><div class="deliverable-name">Industry Blueprints</div><div class="deliverable-desc">A library of public, reusable VC/UORA profiles for major supply chain verticals.</div><div class="deliverable-items"><div class="di-item">Formal JSON-LD credential schemas</div><div class="di-item">Regulatory mapping documents</div><div class="di-item">Issuer and verifier role definitions</div><div class="di-item">Data minimization guidance</div></div></div>
-    <div class="deliverable-card"><div class="deliverable-icon">🔧</div><div class="deliverable-name">Interoperability Toolkit</div><div class="deliverable-desc">Specifications and software tools for translating supply chain event data into verifiable attestations.</div><div class="deliverable-items"><div class="di-item">EPCIS-to-VC mapping specifications</div><div class="di-item">Translation libraries (Python, TypeScript)</div><div class="di-item">Conformance test suites</div><div class="di-item">Sample implementations</div></div></div>
-    <div class="deliverable-card"><div class="deliverable-icon">🏛️</div><div class="deliverable-name">Trust Framework Template</div><div class="deliverable-desc">Customizable governance, accreditation, and compliance rules for credential issuers.</div><div class="deliverable-items"><div class="di-item">Trust anchor accreditation criteria</div><div class="di-item">Governance models for consortia</div><div class="di-item">Dispute resolution frameworks</div><div class="di-item">Liability &amp; legal entity mapping</div></div></div>
-    <div class="deliverable-card"><div class="deliverable-icon">📊</div><div class="deliverable-name">Business Implementation Guide</div><div class="deliverable-desc">Non-technical playbook with quantified ROI case studies and pilot program templates.</div><div class="deliverable-items"><div class="di-item">Anti-counterfeiting ROI models</div><div class="di-item">ESG &amp; Scope 3 reporting guides</div><div class="di-item">Recall management reference arch.</div><div class="di-item">Vendor evaluation criteria</div></div></div>
+    <div class="deliverable-card">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div>
+      <div class="deliverable-name">Industry Blueprints</div>
+      <div class="deliverable-desc">A library of public, reusable VC/UORA profiles for major supply chain verticals.</div>
+      <div class="deliverable-items"><div class="di-item">Formal JSON-LD credential schemas</div><div class="di-item">Regulatory mapping documents</div><div class="di-item">Issuer and verifier role definitions</div><div class="di-item">Data minimization guidance</div></div>
+    </div>
+    <div class="deliverable-card">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4M15 3v4"/><path d="M6 7h12v4a6 6 0 0 1-12 0Z"/><path d="M12 17v4"/></svg></div>
+      <div class="deliverable-name">Interoperability Toolkit</div>
+      <div class="deliverable-desc">Specifications and software tools for translating supply chain event data into verifiable attestations.</div>
+      <div class="deliverable-items"><div class="di-item">EPCIS-to-VC mapping specifications</div><div class="di-item">Translation libraries (Python, TypeScript)</div><div class="di-item">Conformance test suites</div><div class="di-item">Sample implementations</div></div>
+    </div>
+    <div class="deliverable-card">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
+      <div class="deliverable-name">Trust Framework Template</div>
+      <div class="deliverable-desc">Customizable governance, accreditation, and compliance rules for credential issuers.</div>
+      <div class="deliverable-items"><div class="di-item">Trust anchor accreditation criteria</div><div class="di-item">Governance models for consortia</div><div class="di-item">Dispute resolution frameworks</div><div class="di-item">Liability &amp; legal entity mapping</div></div>
+    </div>
+    <div class="deliverable-card">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></div>
+      <div class="deliverable-name">Business Implementation Guide</div>
+      <div class="deliverable-desc">Non-technical playbook with quantified ROI case studies and pilot program templates.</div>
+      <div class="deliverable-items"><div class="di-item">Anti-counterfeiting ROI models</div><div class="di-item">ESG &amp; Scope 3 reporting guides</div><div class="di-item">Recall management reference arch.</div><div class="di-item">Vendor evaluation criteria</div></div>
+    </div>
   </div>
 </section>
 
@@ -530,96 +523,27 @@ footer {
   </div>
 </section>
 
-<div class="full-divider"></div>
-
-<section class="section" id="participants">
-  <div class="section-label">Community</div>
-  <div class="section-title"><strong>Founders &amp; participants</strong></div>
-  <p class="section-sub">Proposed on 3 February 2026 by Amir Hameed Mir and launched on 21 February 2026 with 5 founding supporters. Chaired by Amir Hameed Mir (Sirraya Labs), with W3C Staff Contact Ian Jacobs.</p>
-  <div class="participants-grid" id="participantsGrid"></div>
-  <p class="participants-note"><span id="participantsCount">8</span> participants as of May 2026 · <a href="https://www.w3.org/community/vsc/participants" target="_blank">View full list on W3C →</a></p>
-</section>
-
-<div class="full-divider"></div>
-
-<section class="section" id="activity">
-  <div class="section-label">Mailing list</div>
-  <div class="activity-header">
-    <div><div class="section-title"><strong>Recent</strong> discussion</div><p class="section-sub" style="margin-bottom:0">All communication is public and archived at lists.w3.org. <span id="activityCount">15</span> messages across March–May 2026.</p></div>
-    <div class="activity-header-right"><a href="https://lists.w3.org/Archives/Public/public-vsc/" target="_blank">Full archive ↗</a></div>
-  </div>
-  <div class="activity-list" id="activityList"></div>
-</section>
-
 <div class="join-banner">
-  <div><h2>Open to anyone.<br><strong>No W3C membership required.</strong></h2><p>We are a community initiative — anyone with a free W3C account can join, contribute to specifications, and participate in discussions. All work is public and licensed under W3C Document License.</p><div class="join-criteria"><div class="join-crit"><span class="crit-mark">✓</span> Shape the VSC Requirements and Use Cases specification</div><div class="join-crit"><span class="crit-mark">✓</span> Contribute VC/UORA profiles for your industry vertical</div><div class="join-crit"><span class="crit-mark">✓</span> Represent your industry's regulatory and implementation constraints</div><div class="join-crit"><span class="crit-mark">✓</span> All discussion archived publicly at lists.w3.org</div></div></div>
-  <div class="join-right"><a href="https://www.w3.org/community/vsc/join" class="btn-join-primary" target="_blank">Join on W3C →</a><a href="https://github.com/w3c-cg/vsc-requirements" class="btn-join-ghost" target="_blank">View GitHub</a><a href="mailto:public-vsc@w3.org" class="btn-join-ghost">Email the list</a></div>
+  <div>
+    <h2>Open to anyone.<br><strong>No W3C membership required.</strong></h2>
+    <p>This is a community-driven initiative — anyone with a free W3C account can join, help shape the specifications, and contribute to open discussion. All work is public and licensed under the W3C Document License.</p>
+    <div class="join-criteria">
+      <div class="join-crit"><span class="crit-mark">✓</span> Shape the VSC Requirements and Use Cases specification</div>
+      <div class="join-crit"><span class="crit-mark">✓</span> Contribute a VC/UORA profile for your industry vertical</div>
+      <div class="join-crit"><span class="crit-mark">✓</span> Represent your industry's regulatory and implementation constraints</div>
+      <div class="join-crit"><span class="crit-mark">✓</span> Help build conformance tests and reference implementations</div>
+    </div>
+  </div>
+  <div class="join-right">
+    <a href="https://www.w3.org/community/vsc/join" class="btn-join-primary" target="_blank">Join on W3C →</a>
+    <a href="https://github.com/w3c-cg/vsc-requirements" class="btn-join-ghost" target="_blank">View GitHub</a>
+  </div>
 </div>
 
 <footer>
-  <div class="footer-left"><span class="nav-w3c" style="font-size:9px;">W3C</span><span class="footer-mono">Verifiable Supply Chain Community Group · © 2026 · Amir Hameed Mir, Chair</span></div>
-  <div class="footer-links"><a href="https://www.w3.org/community/vsc/" target="_blank">W3C group page</a><a href="https://lists.w3.org/Archives/Public/public-vsc/" target="_blank">Mailing list</a><a href="https://github.com/w3c-cg/vsc-requirements" target="_blank">GitHub</a><a href="mailto:public-vsc@w3.org">public-vsc@w3.org</a><a href="https://www.w3.org/community/vsc/participants" target="_blank">Participants</a></div>
+  <div class="footer-left"><span class="nav-w3c" style="font-size:9px;">W3C</span><span class="footer-mono">Verifiable Supply Chain Community Group · © 2026</span></div>
+  <div class="footer-links"><a href="https://www.w3.org/community/vsc/" target="_blank">W3C group page</a><a href="https://github.com/w3c-cg/vsc-requirements" target="_blank">GitHub</a></div>
 </footer>
-
-<script>
-// ─── Static data (manually maintained, reflects actual W3C state) ───
-const PARTICIPANTS = [
-    { initials: 'AH', name: 'Amir Hameed Mir', role: 'Chair · Sirraya Labs', color: 'av-blue' },
-    { initials: 'MW', name: 'Muezza Wani', role: 'Founding supporter', color: 'av-green' },
-    { initials: 'IL', name: 'Irtiqa Latif', role: 'Founding supporter', color: 'av-amber' },
-    { initials: 'MB', name: 'Maimoona Bhat', role: 'Founding supporter', color: 'av-gray' },
-    { initials: 'BL', name: 'Bernard Lynch', role: 'Founding supporter', color: 'av-blue' },
-    { initials: 'SG', name: 'Salil Gupta', role: 'Participant', color: 'av-green' },
-    { initials: 'MJ', name: 'Manil Jayswal', role: 'Participant', color: 'av-amber' },
-    { initials: 'TL', name: 'Thanh M. Le', role: 'Participant', color: 'av-gray' }
-];
-
-const MESSAGES = [
-    { initials: 'AH', name: 'Amir Hameed', subject: '[UORA] PR #5: Update UORA Core Specification Draft – Call for Review', date: '28 Apr 2026', url: '2026Apr/0006.html', color: 'av-blue' },
-    { initials: 'AH', name: 'Amir Hameed', subject: 'Re: Introduction — Irtiqa Latif', date: '27 Apr 2026', url: '2026Apr/0005.html', color: 'av-blue' },
-    { initials: 'IL', name: 'Irtiqa Latif', subject: 'Introduction — Irtiqa Latif', date: '26 Apr 2026', url: '2026Apr/0004.html', color: 'av-amber' },
-    { initials: 'AH', name: 'Amir Hameed', subject: '[VSC CG] Call for Review: Initial Requirements and Use Cases (PR #2)', date: '24 Apr 2026', url: '2026Apr/0000.html', color: 'av-blue' },
-    { initials: 'TL', name: 'The tech Ledger', subject: 'Introduction — VC implementer from India', date: '24 Apr 2026', url: '2026Apr/0001.html', color: 'av-gray' },
-    { initials: 'AH', name: 'Amir Hameed', subject: '[VSC CG] Welcome – Repository Ready, Let\'s Begin the Work', date: '31 Mar 2026', url: '2026Mar/0007.html', color: 'av-blue' },
-    { initials: 'AH', name: 'Amir Hameed', subject: '[VSC CG] Repository Structure Launched', date: '31 Mar 2026', url: '2026Mar/0006.html', color: 'av-blue' },
-    { initials: 'LL', name: 'Lizette Louw', subject: 'BSV Association – interest in contributing to test suites', date: '30 Mar 2026', url: '2026Mar/0001.html', color: 'av-green' }
-];
-
-const ARCHIVE_URL = 'https://lists.w3.org/Archives/Public/public-vsc/';
-
-function renderAll() {
-    // Participants
-    const pGrid = document.getElementById('participantsGrid');
-    pGrid.innerHTML = PARTICIPANTS.map(p => `
-        <div class="participant-cell">
-            <div class="p-ava ${p.color}">${p.initials}</div>
-            <div><div class="p-name">${p.name}</div><div class="p-role">${p.role}</div></div>
-        </div>
-    `).join('');
-    document.getElementById('participantsCount').textContent = PARTICIPANTS.length;
-
-    // Messages
-    const aList = document.getElementById('activityList');
-    aList.innerHTML = MESSAGES.map(m => `
-        <a class="activity-item" href="${ARCHIVE_URL}${m.url}" target="_blank">
-            <div class="a-avatar ${m.color}">${m.initials}</div>
-            <div class="a-body">
-                <div class="a-subject">${m.subject}</div>
-                <div class="a-meta"><span>${m.name}</span><span>${m.date}</span></div>
-            </div>
-            <span class="a-arrow">→</span>
-        </a>
-    `).join('');
-    document.getElementById('activityCount').textContent = MESSAGES.length;
-
-    // Stats
-    document.getElementById('statParticipants').textContent = PARTICIPANTS.length;
-    document.getElementById('statMessages').textContent = MESSAGES.length;
-    document.getElementById('statUpdated').textContent = `Data reflects actual W3C archives · Updated ${new Date().toLocaleDateString()}`;
-}
-
-document.addEventListener('DOMContentLoaded', renderAll);
-</script>
 
 </body>
 </html>

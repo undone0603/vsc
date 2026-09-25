@@ -21,7 +21,7 @@ This design note proposes an adversarial conformance model built on:
 
 ## 2. Core Principles
 
-**Ternary Verdicts:** Verifiers MUST return exactly one of three definitive states:
+**Ternary Verdicts:** Verifiers MUST return exactly one of three states:
 
 - `VALID`: All cryptographic proofs, schema requirements, and supply-chain continuity checks succeed.
 - `INVALID`: A definitive cryptographic, structural, or policy violation occurred.
@@ -141,6 +141,8 @@ Example INDETERMINATE fixture (`fixture-vsc-002.json`). The credential is within
   }
 }
 ```
+
+`environment.localStatusLists` is an array of status list credentials supplied to the verifier in advance; when `allowNetworkAccess` is `false`, these are the only status lists the verifier may consult, and an empty array means none are available.
 
 ## 4. Conformance Test Suite Workflow
 
